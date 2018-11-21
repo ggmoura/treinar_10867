@@ -9,6 +9,9 @@ public class Hospital {
 		fulano = new Pessoa();
 		fulano.nome = "Maria Sophia";
 		fulano.altura = 0.8F;
+		System.out.println("Antes de crescer! " + fulano.altura);
+		fulano.crescer();
+		System.out.println("Depois de crescer! " + fulano.altura);
 		
 		System.out.println(fulano.nome);
 		System.out.println(fulano.altura);
@@ -26,11 +29,7 @@ public class Hospital {
 		
 		fulano = null;
 		xpto = null;
-		
-		for (int i = 0; i < 10; i++) {
-			fulano = new Pessoa();
-			//guardar a referencia em algum lugar
-		}
+
 		
 		
 	}
