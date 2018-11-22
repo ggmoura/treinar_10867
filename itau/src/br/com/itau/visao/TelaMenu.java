@@ -26,7 +26,7 @@ public class TelaMenu {
 				System.out.println("Exibe saldo");
 				break;
 			case 0:
-				System.out.println("Sair");
+				System.out.println("###### Saiu do sistema! ######");
 				break;
 			default:
 				System.out.println("###### Opção Inválida ######");
