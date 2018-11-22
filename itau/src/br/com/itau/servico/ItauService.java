@@ -2,6 +2,7 @@ package br.com.itau.servico;
 
 import java.util.Scanner;
 
+import br.com.itau.modelo.Cliente;
 import br.com.itau.modelo.Conta;
 
 public class ItauService {
@@ -16,8 +17,10 @@ public class ItauService {
 		leitor.nextLine();//remover quebra de linha
 		System.out.print("Informe o nome do cliente: ");
 		String nomeDoCliente = leitor.nextLine();
+		Cliente cliente = new Cliente();
+		conta.setCliente(cliente);
 		conta.getCliente().setNome(nomeDoCliente);
-		leitor.close();
+
 	}
 	
 	public double recuperarSaldo() {
