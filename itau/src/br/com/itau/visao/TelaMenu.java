@@ -26,6 +26,9 @@ public class TelaMenu {
 			case 3:
 				depositar();
 				break;
+			case 4:
+				sacar();
+				break;
 			case 0:
 				System.out.println("###### Saiu do sistema! ######");
 				break;
@@ -35,6 +38,12 @@ public class TelaMenu {
 			}
 
 		} while (opcao != 0);
+	}
+
+	private void sacar() {
+		service.sacar();
+		double novoSaldo = service.recuperarSaldo();
+		System.out.println("Saque efetuado com sucesso\nNovo saldo: " + novoSaldo);
 	}
 
 	private void depositar() {
@@ -58,6 +67,7 @@ public class TelaMenu {
 				+ "1 - Criar Conta\n\t"
 				+ "2 - Exibir saldo\n\t"
 				+ "3 - Depositar\n\t"
+				+ "4 - Sacar\n\t"
 				+ "0 - Sair\n=> ");
 	}
 }

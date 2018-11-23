@@ -30,6 +30,12 @@ public class ItauService {
 		double valor = ItauUtil.leitor.nextDouble();
 		conta.depositar(valor);
 	}
+
+	public void sacar() {
+		System.out.print("Informe o valor a ser sacado: ");
+		double valor = ItauUtil.leitor.nextDouble();
+		conta.sacar(valor);
+	}
 	
 	
 	
