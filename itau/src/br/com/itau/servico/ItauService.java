@@ -69,7 +69,5 @@ public class ItauService {
 		//de acordo com a instancia
 		contaGenerica.sacar(valor);
 	}
-	
-	
-	
+
 }

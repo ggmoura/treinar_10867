@@ -1,6 +1,6 @@
 package br.com.itau.modelo;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends Conta implements IContaCaptalizavel {
 
 	private float taxaRendimento;
 
@@ -16,6 +16,11 @@ public class ContaPoupanca extends Conta {
 		if (valor > 0 && saldo >= valor) {
 			saldo -= valor;
 		}
+	}
+
+	@Override
+	public void captalizar() {
+		saldo = saldo + saldo * taxaRendimento;
 	}
 	
 }
