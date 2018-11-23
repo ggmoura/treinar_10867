@@ -5,6 +5,7 @@ import br.com.itau.modelo.Conta;
 import br.com.itau.modelo.ContaCorrente;
 import br.com.itau.modelo.ContaPoupanca;
 import br.com.itau.modelo.ContaSalario;
+import br.com.itau.modelo.IContaCaptalizavel;
 import br.com.itau.util.ItauUtil;
 
 public class ItauService {
@@ -51,6 +52,11 @@ public class ItauService {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
 	
+	public void capitalizarPoupanca() {
+		if (contaGenerica instanceof IContaCaptalizavel) {
+			((IContaCaptalizavel) contaGenerica).captalizar();
+		}
+	}
 	
 	public double recuperarSaldo() {
 		return this.contaGenerica.getSaldo();
