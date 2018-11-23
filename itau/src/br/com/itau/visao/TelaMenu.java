@@ -58,7 +58,9 @@ public class TelaMenu {
 	}
 
 	private void cadastrarConta() {
-		service.cadastrarConta();
+		System.out.print("Digite:\n\t1 - Poupança\n\t2 - Corrente\n\t3 - Salário\n=> ");
+		int tipoConta = ItauUtil.leitor.nextInt();
+		service.cadastrarConta(tipoConta);
 		System.out.println("Conta cadastrada com sucesso!");
 	}
 	

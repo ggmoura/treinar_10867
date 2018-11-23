@@ -1,10 +1,10 @@
 package br.com.itau.modelo;
 
-public class Conta {
+public abstract class Conta {
 
 	private int numeroConta;
 	private Cliente cliente;
-	private double saldo;
+	protected double saldo;
 
 	public void depositar(double valor) {
 		if (valor > 0) {
@@ -12,11 +12,7 @@ public class Conta {
 		}
 	}
 	
-	public void sacar(double valor) {
-		if (valor > 0 && saldo >= valor) {
-			saldo -= valor;
-		}
-	}
+	public abstract void sacar(double valor);
 	
 	public int getNumeroConta() {
 		return numeroConta;
