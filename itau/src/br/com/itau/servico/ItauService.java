@@ -16,11 +16,6 @@ public class ItauService {
 		case 1:
 			contaGenerica = new ContaPoupanca();
 			cadastrarContaGenerica();
-			System.out.print("Informe a taxa de rendimento: ");
-			float taxaRendimento = ItauUtil.leitor.nextFloat();
-			//cast ou conversao da referenica de contapoupanca em conta
-			ContaPoupanca contaPoupanca = (ContaPoupanca)contaGenerica;
-			contaPoupanca.setTaxaRendimento(taxaRendimento);
 			break;
 		case 2:
 			contaGenerica = new ContaCorrente();
@@ -48,6 +43,12 @@ public class ItauService {
 		Cliente cliente = new Cliente();
 		contaGenerica.setCliente(cliente);
 		contaGenerica.getCliente().setNome(nomeDoCliente);
+	}
+	
+	public void cadastrarTaxaRendimentoPoupanca() {
+		System.out.print("Informe a taxa de rendimento: ");
+		float taxaRendimento = ItauUtil.leitor.nextFloat();
+		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
 	
 	

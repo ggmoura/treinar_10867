@@ -29,6 +29,9 @@ public class TelaMenu {
 			case 4:
 				sacar();
 				break;
+			case 5:
+				cadastrarTaxaRendimentoPoupanca();
+				break;
 			case 0:
 				System.out.println("###### Saiu do sistema! ######");
 				break;
@@ -38,6 +41,10 @@ public class TelaMenu {
 			}
 
 		} while (opcao != 0);
+	}
+
+	private void cadastrarTaxaRendimentoPoupanca() {
+		service.cadastrarTaxaRendimentoPoupanca();
 	}
 
 	private void sacar() {
@@ -70,6 +77,7 @@ public class TelaMenu {
 				+ "2 - Exibir saldo\n\t"
 				+ "3 - Depositar\n\t"
 				+ "4 - Sacar\n\t"
+				+ "5 - Cadastrar taxa de rendimento da Poupança\n\t"
 				+ "0 - Sair\n=> ");
 	}
 }

@@ -2,14 +2,23 @@ package br.com.itau.modelo;
 
 public class ContaPoupanca extends Conta implements IContaCaptalizavel {
 
-	private float taxaRendimento;
+	private static float taxaRendimento;
+	private int diaAniversario;
 
 	public float getTaxaRendimento() {
 		return taxaRendimento;
 	}
 
-	public void setTaxaRendimento(float taxaRendimento) {
-		this.taxaRendimento = taxaRendimento;
+	public static void setTaxaRendimento(float taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
+	}
+
+	public int getDiaAniversario() {
+		return diaAniversario;
+	}
+
+	public void setDiaAniversario(int diaAniversario) {
+		this.diaAniversario = diaAniversario;
 	}
 
 	public void sacar(double valor) {
@@ -22,5 +31,5 @@ public class ContaPoupanca extends Conta implements IContaCaptalizavel {
 	public void captalizar() {
 		saldo = saldo + saldo * taxaRendimento;
 	}
-	
+
 }
