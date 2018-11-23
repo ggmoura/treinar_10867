@@ -6,6 +6,10 @@ public class Conta {
 	private Cliente cliente;
 	private double saldo;
 
+	public void depositar(double valor) {
+		saldo += valor;
+	}
+	
 	public int getNumeroConta() {
 		return numeroConta;
 	}

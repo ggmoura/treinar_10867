@@ -1,9 +1,8 @@
 package br.com.itau.servico;
 
-import java.util.Scanner;
-
 import br.com.itau.modelo.Cliente;
 import br.com.itau.modelo.Conta;
+import br.com.itau.util.ItauUtil;
 
 public class ItauService {
 
@@ -11,12 +10,11 @@ public class ItauService {
 	
 	public void cadastrarConta() {
 		conta = new Conta();
-		Scanner leitor = new Scanner(System.in);
 		System.out.print("Informe o número da conta: ");
-		conta.setNumeroConta(leitor.nextInt());
-		leitor.nextLine();//remover quebra de linha
+		conta.setNumeroConta(ItauUtil.leitor.nextInt());
+		ItauUtil.leitor.nextLine();//remover quebra de linha
 		System.out.print("Informe o nome do cliente: ");
-		String nomeDoCliente = leitor.nextLine();
+		String nomeDoCliente = ItauUtil.leitor.nextLine();
 		Cliente cliente = new Cliente();
 		conta.setCliente(cliente);
 		conta.getCliente().setNome(nomeDoCliente);
@@ -25,6 +23,12 @@ public class ItauService {
 	
 	public double recuperarSaldo() {
 		return this.conta.getSaldo();
+	}
+
+	public void depositar() {
+		System.out.print("Informe o valor a ser depositado: ");
+		double valor = ItauUtil.leitor.nextDouble();
+		conta.depositar(valor);
 	}
 	
 	
