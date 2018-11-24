@@ -78,5 +78,9 @@ public class ItauService {
 		// de acordo com a instancia
 		contaGenerica.sacar(valor);
 	}
+	
+	public void imprimirConta() {
+		System.out.println(contaGenerica);
+	}
 
 }
