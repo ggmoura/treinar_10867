@@ -11,7 +11,7 @@ import br.com.itau.util.ItauUtil;
 public class ItauService {
 
 	private Conta contaGenerica;
-	
+
 	public void cadastrarConta(int tipoConta) {
 		switch (tipoConta) {
 		case 1:
@@ -22,42 +22,44 @@ public class ItauService {
 			contaGenerica = new ContaCorrente();
 			cadastrarContaGenerica();
 			System.out.print("Informe o valor da taxa de manutenção: ");
-			((ContaCorrente)contaGenerica).setTaxaManutencao(ItauUtil.leitor.nextDouble());
+			((ContaCorrente) contaGenerica).setTaxaManutencao(ItauUtil.leitor.nextDouble());
 			break;
 		case 3:
 			contaGenerica = new ContaSalario();
 			cadastrarContaGenerica();
 			System.out.print("Informe o dia de depósito do salário: ");
-			((ContaSalario)contaGenerica).setDiaDeposito(ItauUtil.leitor.nextInt());
+			((ContaSalario) contaGenerica).setDiaDeposito(ItauUtil.leitor.nextInt());
 			break;
 		default:
 			break;
 		}
 	}
-	
+
 	private void cadastrarContaGenerica() {
 		System.out.print("Informe o número da conta: ");
 		contaGenerica.setNumeroConta(ItauUtil.leitor.nextInt());
-		ItauUtil.leitor.nextLine();//remover quebra de linha
+		ItauUtil.leitor.nextLine();// remover quebra de linha
 		System.out.print("Informe o nome do cliente: ");
 		String nomeDoCliente = ItauUtil.leitor.nextLine();
 		Cliente cliente = new Cliente();
 		contaGenerica.setCliente(cliente);
 		contaGenerica.getCliente().setNome(nomeDoCliente);
 	}
-	
+
 	public void cadastrarTaxaRendimentoPoupanca() {
 		System.out.print("Informe a taxa de rendimento: ");
 		float taxaRendimento = ItauUtil.leitor.nextFloat();
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
-	
+
 	public void capitalizarPoupanca() {
 		if (contaGenerica instanceof IContaCaptalizavel) {
+			System.out.println("Saldo antes de captalizar: " + contaGenerica.getSaldo());
 			((IContaCaptalizavel) contaGenerica).captalizar();
+			System.out.println("Saldo depois de captalizar: " + contaGenerica.getSaldo());
 		}
 	}
-	
+
 	public double recuperarSaldo() {
 		return this.contaGenerica.getSaldo();
 	}
@@ -71,9 +73,9 @@ public class ItauService {
 	public void sacar() {
 		System.out.print("Informe o valor a ser sacado: ");
 		double valor = ItauUtil.leitor.nextDouble();
-		//ocorre polimorfismo porque cada tipo de conta efetua um saque
-		//diferente, neste ponto de codigo, pode agir de maneira diferente
-		//de acordo com a instancia
+		// ocorre polimorfismo porque cada tipo de conta efetua um saque
+		// diferente, neste ponto de codigo, pode agir de maneira diferente
+		// de acordo com a instancia
 		contaGenerica.sacar(valor);
 	}
 
