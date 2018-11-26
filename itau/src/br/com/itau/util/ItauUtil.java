@@ -8,7 +8,7 @@ public class ItauUtil {
 		
 	}
 	
-	public static Scanner leitor;
+	public final static Scanner leitor;
 	
 	static {
 		leitor = new Scanner(System.in);
