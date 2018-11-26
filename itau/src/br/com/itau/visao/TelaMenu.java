@@ -62,20 +62,29 @@ public class TelaMenu {
 	}
 
 	private void sacar() {
-		service.sacar();
-		double novoSaldo = service.recuperarSaldo();
+		int numeroConta = recuperarNumeroConta();
+		service.sacar(numeroConta);
+		double novoSaldo = service.recuperarSaldo(numeroConta);
 		System.out.println("Saque efetuado com sucesso\nNovo saldo: " + novoSaldo);
 	}
 
 	private void depositar() {
-		service.depositar();
-		double novoSaldo = service.recuperarSaldo();
+		int numeroConta = recuperarNumeroConta();
+		service.depositar(numeroConta);
+		double novoSaldo = service.recuperarSaldo(numeroConta);
 		System.out.println("Deposito efetuado com sucesso\nNovo saldo: " + novoSaldo);
 	}
 
 	private void exibirSaldo() {
-		double saldo = service.recuperarSaldo();
+		int numeroConta = recuperarNumeroConta();
+		double saldo = service.recuperarSaldo(numeroConta);
 		System.out.println("Saldo atual: " + saldo);
+	}
+
+	private int recuperarNumeroConta() {
+		System.out.println("Digite o numero da conta");
+		service.listarContas();
+		return ItauUtil.leitor.nextInt();
 	}
 
 	private void cadastrarConta() {
