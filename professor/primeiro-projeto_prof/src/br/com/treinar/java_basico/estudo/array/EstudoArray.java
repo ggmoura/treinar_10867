@@ -15,7 +15,17 @@ public class EstudoArray {
 		nomes[5] = "Maria Cecilia";
 		nomes[6] = "Davi lucas";
 
+		for (int i = 0; i < nomes.length; i++) {
+			if (nomes[i] != null && !nomes[i].equals("")) {
+				System.out.println(nomes[i]);
+			}
+		}
 		
+		int[] notas = {10, 20, 50};
+		
+		for (int i = 0; i < notas.length; i++) {
+			System.out.println(notas[i]);
+		}
 		
 		
 	}
