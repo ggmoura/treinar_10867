@@ -14,11 +14,18 @@ public class ItauService {
 	private int index;
 	
 	public ItauService() {
-		contas = new Conta[10];
+		contas = new Conta[2];
 		index = 0;
 	}
 
 	public void cadastrarConta(int tipoConta) {
+		if (index > contas.length - 1) {
+			Conta[] temp = new Conta[contas.length * 2];
+			for (int i = 0; i < contas.length; i++) {
+				temp[i] = contas[i];
+			}
+			contas = temp;
+		}
 		switch (tipoConta) {
 		case 1:
 			contas[index] = new ContaPoupanca();
@@ -117,8 +124,16 @@ public class ItauService {
 				System.out.println("\t" + contas[i].getNumeroConta());
 			}
 		}
-		System.out.println("\n");
-		
+		System.out.println("\n=> ");
+	}
+
+	public void excluirConta(int numeroConta) {
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null && contas[i].getNumeroConta() == numeroConta) {
+				contas[i] = null;
+				break;
+			}
+		}
 	}
 
 }

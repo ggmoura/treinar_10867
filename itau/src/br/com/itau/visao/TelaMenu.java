@@ -38,6 +38,9 @@ public class TelaMenu {
 			case 7:
 				imprimirConta();
 				break;
+			case 8:
+				excluirConta();
+				break;
 			case 0:
 				System.out.println("###### Saiu do sistema! ######");
 				break;
@@ -47,6 +50,12 @@ public class TelaMenu {
 			}
 
 		} while (opcao != 0);
+	}
+
+	private void excluirConta() {
+		int numeroConta = recuperarNumeroConta();
+		service.excluirConta(numeroConta);
+		System.out.println("Conta excluida com sucesso!");
 	}
 
 	private void imprimirConta() {
@@ -103,6 +112,7 @@ public class TelaMenu {
 				+ "5 - Cadastrar taxa de rendimento da Poupança\n\t"
 				+ "6 - Aplicar rendimento Poupança\n\t"
 				+ "7 - Imprimir Conta\n\t"
+				+ "8 - Excluir Conta\n\t"
 				+ "0 - Sair\n=> ");
 	}
 }
